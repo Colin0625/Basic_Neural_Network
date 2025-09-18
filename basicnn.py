@@ -163,7 +163,7 @@ class Network():
             output = self.classif(output)
         return output
     
-    def back_prop(self, expected: list[int]):
+    def back_prop(self, expected: list[int]): # INCOMPLETE, need to calculate gradient for each layer
         predicted = [float(x.val) for x in self.layers[-1]]
         l = self.loss(predicted, expected)
         print()
@@ -172,7 +172,7 @@ class Network():
         print()
         return l
 
-    def train(self, trainx: list[list], trainy: list[list], epochs: int = 20, batch_size: int = 16):
+    def train(self, trainx: list[list], trainy: list[list], epochs: int = 20, batch_size: int = 16): # INCOMPLETE
         for i in range(epochs):
             predicted = self.forward_pass(trainx)
             l = self.back_prop(trainy)
